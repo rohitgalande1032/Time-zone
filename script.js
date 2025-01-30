@@ -50,6 +50,10 @@ async function findAddress(lat, lon) {
 document.getElementById("btn").addEventListener("click", async () => {
     let userInput = document.getElementById("address");
     let address = userInput.value;
+    if(address === "") {
+        let clientResult =  document.querySelector(".userInfo");
+        clientResult.innerHTML = `<span style="color: #E84444;">Please enter an address!</span>`
+    }
     console.log(address)
 
     let response = await fetch(`https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(address)}&apiKey=a67e4c83aa08430f8e671d90fc607c95`)
@@ -64,21 +68,24 @@ document.getElementById("btn").addEventListener("click", async () => {
 
 
 function renderUserDetail(data) {
-    let clientResult =  document.querySelector(".clientResult");
+    let clientResult =  document.querySelector(".userInfo");
     clientResult.innerHTML = `
-            <label>Name of the Time Zone : <span>${data.timezone.name}</span></label><br><br>
-            <div style="display: flex; justify-content: start; gap: 10px;">
-                <label>Lat: <span>${data.lat}</span></label>
-                <label>Long: <span>${data.lon}</span></label>
-            </div><br>
+            <h1>Your Result</h1>
+            <div class="clientResult">
+                <label>Name of the Time Zone : <span>${data.timezone.name}</span></label><br><br>
+                <div style="display: flex; justify-content: start; gap: 10px;">
+                    <label>Lat: <span>${data.lat}</span></label>
+                    <label>Long: <span>${data.lon}</span></label>
+                </div><br>
 
-            <label>Offset STD: <span>${data.timezone.offset_STD}</span></label><br><br>
-            
-            <label>Offset STD Seconds: <span>${data.timezone.offset_STD_seconds}</span></label><br><br>
-            <label>Offset DST: <span>${data.timezone.offset_DST}</span></label><br><br>
-            <label>Offset DST seconds: <span>${data.timezone.offset_DST_seconds}</span></label><br><br>
-            <label>Country: <span>${data.country}</span></label><br><br>
-            <label>State: <span>${data.state}</span></label><br><br>
-            <label>City: <span>${data.city}</span></label><br>
+                <label>Offset STD: <span>${data.timezone.offset_STD}</span></label><br><br>
+                
+                <label>Offset STD Seconds: <span>${data.timezone.offset_STD_seconds}</span></label><br><br>
+                <label>Offset DST: <span>${data.timezone.offset_DST}</span></label><br><br>
+                <label>Offset DST seconds: <span>${data.timezone.offset_DST_seconds}</span></label><br><br>
+                <label>Country: <span>${data.country}</span></label><br><br>
+                <label>State: <span>${data.state}</span></label><br><br>
+                <label>City: <span>${data.city}</span></label><br>
+            </div>
             `
 }

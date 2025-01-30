@@ -46,6 +46,7 @@ body {
 .userInput>button{ 
     padding: 5px 30px;
     border: 2px solid white;
+    margin-bottom: 10px;
 }
 
 
