@@ -1,0 +1,67 @@
+body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.section1 {
+    background-color: white;
+    padding-bottom: 10px;
+    width: 100%;
+    margin: auto;
+}
+
+.section2 {
+    background-color: transparent;
+    color: white;
+    width: 100%;
+}
+
+
+.current {
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.timezone{
+    width: 30%;
+    margin: auto;
+}
+
+.result{
+    width: 30%;
+    margin: auto;
+}
+
+.userInput>input {
+    padding: 5px 0;
+    background-color: transparent;
+    border: 2px solid white;
+    width: 100%;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.userInput>button{ 
+    padding: 5px 30px;
+    border: 2px solid white;
+}
+
+
+.clientResult {
+    border: 2px solid white;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 578px) {
+    .timezone {
+        width: 90%;
+    }
+    .result {
+        width: 90%;
+    }
+}
+
+
